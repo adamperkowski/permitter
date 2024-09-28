@@ -1,6 +1,6 @@
 [package]
 name = "permitter"
-version = "2.1.0"
+version = "3.0.0"
 authors = ["Adam Perkowski <adas1per@protonmail.com>", "Raphaël Thériault <raphael_theriault@outlook.com>"]
 license = "MIT"
 description = "write licenses to stdout. a fork of licensor."
