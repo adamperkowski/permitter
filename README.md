@@ -1,8 +1,10 @@
-# licensor
+# permitter
 
 ![Preview](./resources/preview.svg)
 
 write licenses to stdout
+
+a fork of [licensor](https://github.com/raftario/licensor)
 
 [![GitHub Actions](https://img.shields.io/github/workflow/status/raftario/licensor/Build)](https://github.com/raftario/licensor/actions?workflowID=Build) [![crates.io](https://img.shields.io/crates/v/licensor?color=orange)](https://crates.io/crates/licensor)
 
