@@ -332,12 +332,12 @@ mod tests {
         fn works() {
             let mut encoder = GzEncoder::new(Vec::new(), Compression::default());
             encoder
-                .write_all(b"MIT License Copyright (c) <year> <copyright holders>")
+                .write_all(b"MIT License\n\nCopyright (c) <year> <copyright holders>")
                 .unwrap();
             let encoded = encoder.finish().unwrap();
 
             let result = gz_decode_bytes(&encoded).unwrap();
-            let expected = "MIT License Copyright (c) <year> <copyright holders>".to_owned();
+            let expected = "MIT License\n\nCopyright (c) <year> <copyright holders>".to_owned();
 
             assert_eq!(result, expected);
         }
@@ -417,7 +417,7 @@ mod tests {
         #[test]
         fn works() {
             let result = parse_license("MIT").unwrap();
-            assert!(result.starts_with("MIT License Copyright (c) <year> <copyright holders>"));
+            assert!(result.starts_with("MIT License\n\nCopyright (c) <year> <copyright holders>"));
         }
     }
 
