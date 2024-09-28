@@ -7,7 +7,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 1
     - uses: actions-rs/toolchain@v1
@@ -24,19 +24,19 @@ jobs:
       run: strip target/release/permitter
     - name: Archive binary (Linux)
       if: matrix.os == 'ubuntu-latest'
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: Linux
         path: target/release/permitter
     - name: Archive binary (Windows)
       if: matrix.os == 'windows-latest'
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: Windows
         path: target/release/permitter.exe
     - name: Archive binary (macOS)
       if: matrix.os == 'macOS-latest'
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: macOS
         path: target/release/permitter
