@@ -3,7 +3,7 @@ use std::process::Command;
 
 #[test]
 fn list_licenses() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["-l"])
         .assert()
@@ -11,7 +11,7 @@ fn list_licenses() {
         .stdout(predicates::str::contains("\n"))
         .stderr(predicates::str::is_empty());
 
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["--licenses"])
         .assert()
@@ -22,7 +22,7 @@ fn list_licenses() {
 
 #[test]
 fn list_exceptions() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["-e"])
         .assert()
@@ -30,7 +30,7 @@ fn list_exceptions() {
         .stdout(predicates::str::contains("\n"))
         .stderr(predicates::str::is_empty());
 
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["--exceptions"])
         .assert()
@@ -41,7 +41,7 @@ fn list_exceptions() {
 
 #[test]
 fn license() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["MIT"])
         .assert()
@@ -52,7 +52,7 @@ fn license() {
 
 #[test]
 fn license_invalid() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["mit"])
         .assert()
@@ -63,20 +63,20 @@ fn license_invalid() {
 
 #[test]
 fn license_and_name() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
-        .args(&["MIT", "Raphaël Thériault"])
+        .args(&["MIT", "Adam Perkowski"])
         .assert()
         .success()
         .stdout(predicates::str::starts_with(
-            "MIT License Copyright (c) 2022 Raphaël Thériault\n",
+            "MIT License Copyright (c) 2024 Adam Perkowski\n",
         ))
         .stderr(predicates::str::is_empty());
 }
 
 #[test]
 fn license_with_exception() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["Apache-2.0 WITH LLVM-exception"])
         .assert()
@@ -89,7 +89,7 @@ fn license_with_exception() {
 
 #[test]
 fn license_with_exception_invalid() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["Apache-2.0 WITH llvm"])
         .assert()
@@ -100,7 +100,7 @@ fn license_with_exception_invalid() {
 
 #[test]
 fn expr_invalid() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["Apache-2.0 with LLVM-exception"])
         .assert()
@@ -111,7 +111,7 @@ fn expr_invalid() {
 
 #[test]
 fn license_keep_placeholder() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["MIT", "-p"])
         .assert()
@@ -121,7 +121,7 @@ fn license_keep_placeholder() {
         ))
         .stderr(predicates::str::is_empty());
 
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["MIT", "--keep-placeholder"])
         .assert()
@@ -134,7 +134,7 @@ fn license_keep_placeholder() {
 
 #[test]
 fn license_skip_optional() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["MIT", "-o"])
         .assert()
@@ -144,7 +144,7 @@ fn license_skip_optional() {
         ))
         .stderr(predicates::str::is_empty());
 
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .args(&["MIT", "--skip-optional"])
         .assert()
@@ -157,7 +157,7 @@ fn license_skip_optional() {
 
 #[test]
 fn invalid() {
-    Command::cargo_bin("licensor")
+    Command::cargo_bin("permitter")
         .unwrap()
         .assert()
         .failure()

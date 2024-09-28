@@ -1,0 +1,9 @@
+[package]
+name = "permitter_codegen"
+version = "0.1.0"
+authors = ["Adam Perkowski <adas1per@protonmail.com>", "Raphaël Thériault <raphael_theriault@outlook.com>"]
+edition = "2018"
+
+[dependencies]
+permitter_common = { path = "../permitter_common" }
+phf_codegen = "0.7.24"

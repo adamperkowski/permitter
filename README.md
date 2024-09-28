@@ -6,7 +6,7 @@ write licenses to stdout
 
 a fork of [licensor](https://github.com/raftario/licensor)
 
-[![GitHub Actions](https://img.shields.io/github/workflow/status/raftario/licensor/Build)](https://github.com/raftario/licensor/actions?workflowID=Build) [![crates.io](https://img.shields.io/crates/v/licensor?color=orange)](https://crates.io/crates/licensor)
+[![GitHub Actions](https://img.shields.io/github/workflow/status/adamperkowski/permitter/Build)](https://github.com/adamperkowski/permitter/actions?workflowID=Build) [![crates.io](https://img.shields.io/crates/v/permitter?color=orange)](https://crates.io/crates/permitter)
 
 ## About
 
@@ -32,24 +32,24 @@ Here are a couple usage examples to get a general idea of how it all works. For 
 Write the MIT license with a copyright notice to `LICENSE`:
 
 ```sh
-$ licensor MIT "Raphaël Thériault" > LICENSE
+$ permitter MIT "Adam Perkowski" > LICENSE
 ```
 
 Write the Apache 2.0 license with the LLVM exception to `LICENSE`, skipping optional parts:
 
 ```sh
-$ licensor "Apache-2.0 WITH LLVM-exception" --skip-optional > LICENSE
+$ permitter "Apache-2.0 WITH LLVM-exception" --skip-optional > LICENSE
 ```
 
 Print the BSD 3 Clause license without a copyright notice:
 
 ```sh
-$ licensor BSD-3-Clause
+$ permitter BSD-3-Clause
 ```
 
 List available licenses
 ```sh
-$ licensor --licenses
+$ permitter --licenses
 ```
 
 ## Installation
@@ -58,20 +58,14 @@ There are a few installation option available.
 
 You are welcome to distribute this software on other platforms, don't hesitate to open a PR to update this section if you do so!
 
-### [Releases](https://github.com/raftario/licensor/releases/latest)
+### [Releases](https://github.com/adamperkowski/permitter/releases/latest)
 
-Pre-compiled binaries of `licensor` can be downloaded from the release page.
+Pre-compiled binaries of `permitter` can be downloaded from the release page.
 
-### [Homebrew](https://formulae.brew.sh/formula/licensor)
-
-```sh
-$ brew install licensor
-```
-
-### [Crates.io](https://crates.io/crates/licensor)
+### [Crates.io](https://crates.io/crates/permitter)
 
 ```sh
-$ cargo install licensor
+$ cargo install permitter
 ```
 
 ## Available licenses and exceptions
@@ -88,13 +82,13 @@ However, try to keep the main CLI as simple and light as possible. Features such
 
 If you'd like a license to be added to the list, you can either open an issue for it or add it yourself, which is fairly easy.
 
-To add a license, just add it to [`resources/licenses.json`](./resources/licenses.json) following the schema provided in [`resources/licenses-schema.json`](./resources/licenses-schema.json). To apply the changes to the main CLI, you'll also need to run both `cargo run -p licensor_fetch` and `cargo run -p licensor_codegen`, in that order. To get the information you need, just refer to the [SPDX License List](https://github.com/spdx/license-list-data).
+To add a license, just add it to [`resources/licenses.json`](./resources/licenses.json) following the schema provided in [`resources/licenses-schema.json`](./resources/licenses-schema.json). To apply the changes to the main CLI, you'll also need to run both `cargo run -p permitter_fetch` and `cargo run -p permitter_codegen`, in that order. To get the information you need, just refer to the [SPDX License List](https://github.com/spdx/license-list-data).
 
 The same goes for exceptions.
 
 ## How it works
 
-First, licenses and exceptions specified in the resources files are parsed from the [SPDX License List](https://github.com/spdx/license-list-data), then gzipped, using the [licensor_fetch](./licensor_fetch) subcrate. Then the [codegen.rs](./src/codegen.rs) file is automatically generated based on the parsed licenses, using the [licensor_codegen](./licensor_codegen) subcrate, and included in the CLI.
+First, licenses and exceptions specified in the resources files are parsed from the [SPDX License List](https://github.com/spdx/license-list-data), then gzipped, using the [permitter_fetch](./permitter_fetch) subcrate. Then the [codegen.rs](./src/codegen.rs) file is automatically generated based on the parsed licenses, using the [permitter_codegen](./permitter_codegen) subcrate, and included in the CLI.
 
 Finally, the main CLI is built on its own, which makes the build time relatively fast for end users and only requires dependencies of the main CLI and not ones required by helper subcrates.
 
@@ -104,4 +98,4 @@ Thanks to the amazing people on the [/r/rust](https://reddit.com/r/rust) subredd
 
 ## Licensing
 
-`licensor` is licensed under the [MIT License](./LICENSE).
+`permitter` is licensed under the [MIT License](./LICENSE).

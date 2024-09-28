@@ -1,11 +1,11 @@
 [package]
-name = "licensor"
+name = "permitter"
 version = "2.1.0"
-authors = ["Raphaël Thériault <raphael_theriault@outlook.com>"]
+authors = ["Adam Perkowski <adas1per@protonmail.com>", "Raphaël Thériault <raphael_theriault@outlook.com>"]
 license = "MIT"
-description = "write licenses to stdout"
-homepage = "https://github.com/raftario/licensor"
-repository = "https://github.com/raftario/licensor.git"
+description = "write licenses to stdout. a fork of licensor."
+homepage = "https://github.com/adamperkowski/permitter"
+repository = "https://github.com/adamperkowski/permitter.git"
 readme = "README.md"
 keywords = [
     "license",
@@ -18,9 +18,9 @@ edition = "2018"
 
 [workspace]
 members = [
-    "licensor_codegen",
-    "licensor_common",
-    "licensor_fetch"
+    "permitter_codegen",
+    "permitter_common",
+    "permitter_fetch"
 ]
 
 [dependencies]

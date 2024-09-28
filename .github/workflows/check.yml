@@ -32,12 +32,12 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: run
-        args: -p licensor_fetch
+        args: -p permitter_fetch
     - name: Generate code
       uses: actions-rs/cargo@v1
       with:
         command: run
-        args: -p licensor_codegen
+        args: -p permitter_codegen
     - name: Format newly generated code
       uses: actions-rs/cargo@v1
       with:

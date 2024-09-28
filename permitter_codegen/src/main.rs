@@ -4,7 +4,7 @@ use std::io::Write;
 use std::path::PathBuf;
 
 fn get_path() -> PathBuf {
-    let mut path = licensor_common::get_root_path();
+    let mut path = permitter_common::get_root_path();
     path.push("src");
     path.push("codegen.rs");
     path
@@ -29,8 +29,8 @@ fn main() {
     )
     .expect("Can't write to codegen.rs.");
 
-    let licenses = licensor_common::parse_licenses();
-    let exceptions = licensor_common::parse_exceptions();
+    let licenses = permitter_common::parse_licenses();
+    let exceptions = permitter_common::parse_exceptions();
 
     let mut licenses_builder = OrderedMap::new();
     let mut licenses_info_builder = OrderedMap::new();

@@ -46,13 +46,13 @@ fn encode_file_gz<P: AsRef<Path> + Debug, W: Write>(src: P, dest: &mut W, level:
 }
 
 fn get_lld_archive_path() -> PathBuf {
-    let mut lld_archive_path = licensor_common::get_resources_path();
+    let mut lld_archive_path = permitter_common::get_resources_path();
     lld_archive_path.push("license-list-data-3.7.tar.gz");
     lld_archive_path
 }
 
 fn main() {
-    let resources_path = licensor_common::get_resources_path();
+    let resources_path = permitter_common::get_resources_path();
 
     let lld_archive_path = get_lld_archive_path();
     let mut lld_archive_ok = false;
@@ -78,8 +78,8 @@ fn main() {
     let mut decoded_archive: Vec<u8> = Vec::new();
     decode_gz_file(&lld_archive_path, &mut decoded_archive);
 
-    let licenses = licensor_common::parse_licenses();
-    let exceptions = licensor_common::parse_exceptions();
+    let licenses = permitter_common::parse_licenses();
+    let exceptions = permitter_common::parse_exceptions();
 
     let mut parsed_licenses: Vec<String> = Vec::new();
     let mut parsed_exceptions: Vec<String> = Vec::new();
@@ -171,7 +171,7 @@ fn main() {
 
     eprintln!("Writing list file...");
 
-    let mut list_path = licensor_common::get_root_path();
+    let mut list_path = permitter_common::get_root_path();
     list_path.push("LIST.md");
 
     let mut list_contents = "# Available licenses and exceptions\n\n".to_owned();

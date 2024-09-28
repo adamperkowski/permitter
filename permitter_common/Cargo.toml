@@ -1,7 +1,7 @@
 [package]
-name = "licensor_common"
+name = "permitter_common"
 version = "0.1.0"
-authors = ["Raphaël Thériault <raphael_theriault@outlook.com>"]
+authors = ["Adam Perkowski <adas1per@protonmail.com>", "Raphaël Thériault <raphael_theriault@outlook.com>"]
 edition = "2018"
 
 [dependencies]

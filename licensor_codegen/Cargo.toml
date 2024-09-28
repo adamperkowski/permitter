@@ -1,9 +1,0 @@
-[package]
-name = "licensor_codegen"
-version = "0.1.0"
-authors = ["Raphaël Thériault <raphael_theriault@outlook.com>"]
-edition = "2018"
-
-[dependencies]
-licensor_common = { path = "../licensor_common" }
-phf_codegen = "0.7.24"

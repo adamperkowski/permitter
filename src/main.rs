@@ -188,7 +188,7 @@ fn list_exceptions() -> io::Result<()> {
     Ok(())
 }
 
-fn licensor_main(args: Opt) -> io::Result<()> {
+fn permitter_main(args: Opt) -> io::Result<()> {
     let expr = parse_spdx_expr(args.spdx_expr.unwrap())?;
     let mut valid_exception = true;
 
@@ -274,7 +274,7 @@ fn licensor_main(args: Opt) -> io::Result<()> {
 }
 
 fn unexpected() -> io::Result<()> {
-    stderrln!("This shouldn't have happened. Please open an issue with the command you entered: <https://github.com/raftario/licensor/issues>.")?;
+    stderrln!("This shouldn't have happened. Please open an issue with the command you entered: <https://github.com/adamperkowski/permitter/issues>.")?;
     process::exit(1);
 }
 
@@ -287,7 +287,7 @@ fn main() -> io::Result<()> {
     } else if args.list_exceptions {
         list_exceptions()
     } else if args.spdx_expr.is_some() {
-        licensor_main(args)
+        permitter_main(args)
     } else {
         stderrln!("Invalid arguments.")?;
         unexpected()
