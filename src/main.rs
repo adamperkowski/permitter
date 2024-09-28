@@ -141,7 +141,7 @@ fn parse_license(id: &str) -> io::Result<String> {
     } else {
         stderrln!("Invalid license ID.")?;
 
-        let similar = get_similar_keys(&id, &LICENSES);
+        let similar = get_similar_keys(id, &LICENSES);
         if !similar.is_empty() {
             stderrln!("Similar IDs: {}.", similar.join(", "))?;
         }
@@ -165,7 +165,7 @@ fn parse_exception(id: &str) -> io::Result<String> {
     } else {
         stderrln!("Invalid exception ID.")?;
 
-        let similar = get_similar_keys(&id, &EXCEPTIONS);
+        let similar = get_similar_keys(id, &EXCEPTIONS);
         if !similar.is_empty() {
             stderrln!("Similar IDs: {}.", similar.join(", "))?;
         }
@@ -199,7 +199,7 @@ fn permitter_main(args: Opt) -> io::Result<()> {
         if let Some(name) = args.copyright_holder {
             if let Some(replace) = &license_info.replace {
                 if let Some(replace_year) = replace.year {
-                    let year = Utc::today().year().to_string();
+                    let year = Utc::now().year().to_string();
                     license = license.replace(replace_year, &year);
                 }
                 if let Some(replace_name) = replace.name {

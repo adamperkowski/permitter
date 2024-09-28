@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 pub struct LicenseReplace {
     pub year: Option<&'static str>,
     pub name: Option<&'static str>,
