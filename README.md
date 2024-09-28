@@ -1,6 +1,6 @@
 # permitter
 
-![Preview](./resources/preview.svg)
+![Preview](./resources/preview.gif)
 
 write licenses to stdout
 
