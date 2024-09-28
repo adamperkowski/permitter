@@ -46,7 +46,7 @@ fn license() {
         .args(&["MIT"])
         .assert()
         .success()
-        .stdout(predicates::str::starts_with("MIT License \n"))
+        .stdout(predicates::str::starts_with("MIT License\n"))
         .stderr(predicates::str::is_empty());
 }
 
@@ -69,7 +69,7 @@ fn license_and_name() {
         .assert()
         .success()
         .stdout(predicates::str::starts_with(
-            "MIT License Copyright (c) 2024 Adam Perkowski\n",
+            "MIT License\n\nCopyright (c) 2024 Adam Perkowski\n",
         ))
         .stderr(predicates::str::is_empty());
 }
@@ -117,7 +117,7 @@ fn license_keep_placeholder() {
         .assert()
         .success()
         .stdout(predicates::str::starts_with(
-            "MIT License Copyright (c) <year> <copyright holders>\n",
+            "MIT License\n\nCopyright (c) <year> <copyright holders>\n",
         ))
         .stderr(predicates::str::is_empty());
 
@@ -127,7 +127,7 @@ fn license_keep_placeholder() {
         .assert()
         .success()
         .stdout(predicates::str::starts_with(
-            "MIT License Copyright (c) <year> <copyright holders>\n",
+            "MIT License\n\nCopyright (c) <year> <copyright holders>\n",
         ))
         .stderr(predicates::str::is_empty());
 }
