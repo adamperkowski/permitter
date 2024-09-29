@@ -6,7 +6,7 @@ write licenses to stdout
 
 a fork of [licensor](https://github.com/raftario/licensor)
 
-[![GitHub Actions](https://img.shields.io/github/workflow/status/adamperkowski/permitter/Build)](https://github.com/adamperkowski/permitter/actions?workflowID=Build) [![crates.io](https://img.shields.io/crates/v/permitter?color=orange)](https://crates.io/crates/permitter)
+[![GitHub Workflow](https://img.shields.io/github/actions/workflow/status/adamperkowski/permitter/build.yml)](https://github.com/adamperkowski/permitter/actions?workflowID=build) [![crates.io](https://img.shields.io/crates/v/permitter?color=orange)](https://crates.io/crates/permitter) [![AUR](https://img.shields.io/aur/version/permitter)](https://aur.archlinux.org/packages/permitter)
 
 ## About
 
@@ -32,24 +32,24 @@ Here are a couple usage examples to get a general idea of how it all works. For 
 Write the MIT license with a copyright notice to `LICENSE`:
 
 ```sh
-$ permitter MIT "Adam Perkowski" > LICENSE
+permitter MIT "Adam Perkowski" > LICENSE
 ```
 
 Write the Apache 2.0 license with the LLVM exception to `LICENSE`, skipping optional parts:
 
 ```sh
-$ permitter "Apache-2.0 WITH LLVM-exception" --skip-optional > LICENSE
+permitter "Apache-2.0 WITH LLVM-exception" --skip-optional > LICENSE
 ```
 
 Print the BSD 3 Clause license without a copyright notice:
 
 ```sh
-$ permitter BSD-3-Clause
+permitter BSD-3-Clause
 ```
 
 List available licenses
 ```sh
-$ permitter --licenses
+permitter --licenses
 ```
 
 ## Installation
@@ -65,7 +65,20 @@ Pre-compiled binaries of `permitter` can be downloaded from the release page.
 ### [Crates.io](https://crates.io/crates/permitter)
 
 ```sh
-$ cargo install permitter
+cargo install permitter
+```
+
+### [Arch Linux](https://aur.archlinux.org/packages/permitter)
+
+```sh
+git clone https://aur.archlinux.org/permitter.git
+cd permitter
+makepkg -si
+```
+
+If you use an AUR Helper ([paru](https://github.com/Morganamilo/paru) for example), it's even simplier:
+```sh
+paru -S permitter
 ```
 
 ## Available licenses and exceptions
